@@ -31,19 +31,23 @@ class API {
 }
 
 const api = new API('https://api.figma.com/v1', {
-  files: { key: undefined },
+  files: ['key'],
 });
 // const user = 'https://api.figma.com/v1/me';
 // const file = `https://api.figma.com/v1/files/${AVASCO_FILE_KEY}`;
 // const projects = 'https://api.figma.com/v1/teams/:team_id/projects';
 
 function App() {
-  const login = async () => {
-    const result = await api.files(AVASCO_FILE_KEY);
-    console.log(result);
-  };
+  /* const getFile = async (key) => {
+    const result = await api.files(key);
+    // console.log(result);
+    return result;
+  }; */
   useEffect(() => {
-    login();
+    api.files(AVASCO_FILE_KEY).then((file) => {
+      const canvas = file.document.children;
+      console.log(canvas.map((c) => c.name).join('\n'));
+    });
   }, []);
   return (
     <div className="App">
