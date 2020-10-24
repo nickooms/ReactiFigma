@@ -11,7 +11,7 @@ class API {
     this._operations = operations;
     Object.assign(
       this,
-      operations.map((operationName) => async (...args) => {
+      Object.keys(operations).map((operationName) => async (...args) => {
         const result = await this.operation(operationName, ...args);
         return result;
       })
