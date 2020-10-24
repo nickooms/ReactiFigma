@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const FIGMA_TOKEN = '131048-174ca94f-2b4b-43df-b441-5d6cc84793bb';
 const AVASCO_FILE_KEY = 'YnKVSZa6n17N9ISVjD3ZAT';
@@ -38,6 +38,7 @@ const api = new API('https://api.figma.com/v1', {
 // const projects = 'https://api.figma.com/v1/teams/:team_id/projects';
 
 function App() {
+  const [canvas, setCanvas] = useState(null);
   /* const getFile = async (key) => {
     const result = await api.files(key);
     // console.log(result);
@@ -52,6 +53,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        {canvas && (
+          <ul>
+            {canvas.map((c) => (
+              <li>{c.name}</li>
+            ))}
+          </ul>
+        )}
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
