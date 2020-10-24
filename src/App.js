@@ -48,6 +48,7 @@ function App() {
     api.files(AVASCO_FILE_KEY).then((file) => {
       const canvas = file.document.children;
       console.log(canvas.map((c) => c.name).join('\n'));
+      setCanvas(canvas);
     });
   }, []);
   return (
