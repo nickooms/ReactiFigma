@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 const AVASCO_FILE_KEY = 'YnKVSZa6n17N9ISVjD3ZAT';
 
 // const user = 'https://api.figma.com/v1/me';
-const file = `ttps://api.figma.com/v1/files/${AVASCO_FILE_KEY}`;
+const file = `https://api.figma.com/v1/files/${AVASCO_FILE_KEY}`;
 // const projects = 'https://api.figma.com/v1/teams/:team_id/projects';
 
 function App() {
